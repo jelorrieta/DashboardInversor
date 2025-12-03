@@ -1,0 +1,4 @@
+{
+  "dia": 20,    // segundos durante el día
+  "noche": 300  // segundos durante la noche (5 min)
+}
