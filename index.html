@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dashboard Inversor</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  
+</head>
+
+<body>
+  <!-- <script>setInterval(() => location.reload(), 25000);</script> -->
+  <div class="app">
+    <header>
+      <div>
+        <h1>Dashboard Inversor</h1>
+        <div class="meta" id="lastMeta">Último registro: -</div>
+      </div>
+      <div class="meta" id="nowMeta" style="display:none">Datos: carga local</div>
+    </header>
+
+    <div class="grid">
+      
+      
+      
+      <!-- KPIs VPV, PPV, PCW -->
+      <div class="card span-3">
+        <div style="font-weight:700;margin-bottom:8px">Producción / Consumo</div>
+        <div class="kpis">
+          <div class="kpi"><div class="label">&nbsp;Voltaje Paneles&nbsp;</div><div class="value" id="vpv">-</div></div>
+          <div class="kpi"><div class="label">Potencia Paneles</div><div class="value" id="ppv">-</div></div>
+          <div class="kpi"><div class="label">Potencia Cargas</div><div class="value" id="pcw">-</div></div>
+        </div>
+      </div> 
+
+      <!-- PPV vs PCW evolution -->
+      <div class="card span-6">
+        <div style="font-weight:700;margin-bottom:6px;text-align:center;">Evolución Potencia</div>
+        <div style="font-weight:700;margin-bottom:6px;text-align:center;">Paneles vs Cargas (W)</div>
+        <canvas id="ppvpcwChart"></canvas>
+      </div>
+
+      
+<!-- Botones de Zoom-->
+      <div class="card span-3">
+        <div style="font-weight:700;margin-bottom:8px">Escala Gráfico</div>
+        <div class="kpis" style="align-items: start;">
+          <button id="btn50" onclick="setSelectedValue(50)">20 Minutos</button>
+          <button id="btn100" onclick="setSelectedValue(100)">40 Minutos</button>
+          <button id="btn150" onclick="setSelectedValue(150)">60 Minutos</button>
+        </div>
+      </div>
+      
+      
+      <!-- VBT, IBC, IBT -->
+      <div class="card span-12">
+        <div style="font-weight:700;margin-bottom:6px">Datos Batería</div>
+				<div class="row">
+          <div class="stat"><div class="slabel">Voltaje Bornes</div><div class="sval" id="vbt">-</div></div>
+          <div class="stat"><div class="slabel">Corriente Carga</div><div class="sval" id="ibc">-</div></div>
+          <div class="stat"><div class="slabel">Corriente Descarga</div><div class="sval" id="ibt">-</div></div>
+					<div class="stat"><div class="slabel">Porcentaje Batería</div><div class="sval" id="pbt">-</div><div class="sval" id="ewh">-</div></div>
+        </div>
+      </div>
+
+
+      
+
+      <!-- CP, SP, ST -->
+      <div class="card span-12">
+        <div style="font-weight:700;margin-bottom:8px">Estados / Modos</div>
+        <div class="row">
+          <div class="stat"><div class="slabel">Prioridad de Uso</div><div class="sval" id="sp">-</div></div>
+          <div class="stat"><div class="slabel">Prioridad Carga</div><div class="sval" id="cp">-</div></div>          
+          <div class="stat"><div class="slabel">Estado Carga</div><div class="sval" id="st">-</div></div>
+          <div class="stat"><div class="slabel">Contador Reset</div><div class="sval" id="contador">-</div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <footer><div class="meta" id="win-width" style="display:none">Ancho de Pantalla: </div></footer>
+  </div>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+  <script src="cargar.js"></script>
+
+</body>
+</html>
