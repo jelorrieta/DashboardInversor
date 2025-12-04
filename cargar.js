@@ -162,7 +162,11 @@ async function update() {
       ppvpcwChart.data.labels = times;
       ppvpcwChart.data.datasets[0].data = ppv;
       ppvpcwChart.data.datasets[1].data = pcw;
-      ppvpcwChart.options.scales.x.min = times[times.length - Math.min(selectedValue,times.length-3)];
+      if(selectedValue<times.length){
+        ppvpcwChart.options.scales.x.min = times[times.length - selectedValue];
+      } else{
+        ppvpcwChart.options.scales.x.min = times[0];
+      }
       console.log(selectedValue);
       ppvpcwChart.options.scales.x.max = times[times.length - 1];
       ppvpcwChart.update();
