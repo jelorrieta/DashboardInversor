@@ -2,7 +2,7 @@
 
 let rawData = [];
 let ppvpcwChart = null;
-let selectedValue = 50;  // Valor predeterminado
+let selectedValue = 100;  // Valor predeterminado
 
 async function setSelectedValue(value) {
   selectedValue = value;
