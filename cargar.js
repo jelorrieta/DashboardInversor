@@ -136,7 +136,7 @@ async function update() {
               },
               ticks: {
                 color: '#dddddd',
-				callback: value => (value * 100) + '%'
+				callback: value => Math.round(value * 100) + '%'
 			  }
             }
           },
@@ -183,4 +183,5 @@ async function update() {
     }
 }
 init();
+
 
