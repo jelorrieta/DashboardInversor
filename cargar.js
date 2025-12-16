@@ -162,7 +162,7 @@ async function update() {
     		callbacks: {
       			label: (ctx) => {
         			if (ctx.dataset.yAxisID === 'y2') {
-          				return `${ctx.dataset.label}: ${Math.round(ctx.raw * 100,1)}%`;
+          				return `${ctx.dataset.label}: ${(ctx.raw * 100).toFixed(1)}%`;
         			}
         			return `${ctx.dataset.label}: ${ctx.raw}`;
       			}
@@ -194,6 +194,7 @@ async function update() {
     }
 }
 init();
+
 
 
 
