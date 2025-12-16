@@ -157,7 +157,18 @@ async function update() {
               }
     
             },
-            
+			  
+			tooltip: {
+    		callbacks: {
+      			label: (ctx) => {
+        			if (ctx.dataset.yAxisID === 'y2') {
+          				return `${ctx.dataset.label}: ${Math.round(ctx.raw * 100)}%`;
+        			}
+        			return `${ctx.dataset.label}: ${ctx.raw}`;
+      			}
+    		}
+ 			},
+			  
             legend:{
               position:'bottom',
               usePointStyle: true,
@@ -183,5 +194,6 @@ async function update() {
     }
 }
 init();
+
 
 
