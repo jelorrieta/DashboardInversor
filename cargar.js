@@ -12,7 +12,7 @@ async function setSelectedValue(value) {
 
 async function cargarDatos() {
   try {
-    const resp = await fetch("https://datosinversor-apfaa2aadgcwcvey.brazilsouth-01.azurewebsites.net/api/dashboard?tz=-3");
+    const resp = await fetch("https://datosinversor.azurewebsites.net/api/dashboard?tz=-3");
     const data = await resp.json();
     return data;
   } catch (e) {
@@ -194,6 +194,7 @@ async function update() {
     }
 }
 init();
+
 
 
 
