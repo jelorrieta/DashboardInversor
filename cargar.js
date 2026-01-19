@@ -43,10 +43,10 @@ async function update() {
 
   const latest = rawData.current;
   const series = rawData.series;
-  console.log(series);
+  //console.log(series);
 
   anchoPantalla = window.innerWidth;
-  console.log(anchoPantalla);
+  //console.log(anchoPantalla);
 
   // fill header meta
     document.getElementById('lastMeta').textContent = `Último registro: ${latest.FECHA} ${latest.HORA}`;
@@ -195,6 +195,7 @@ async function update() {
     }
 }
 init();
+
 
 
 
