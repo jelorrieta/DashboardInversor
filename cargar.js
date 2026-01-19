@@ -43,6 +43,7 @@ async function update() {
 
   const latest = rawData.current;
   const series = rawData.series;
+  console.log(series);
 
   anchoPantalla = window.innerWidth;
   console.log(anchoPantalla);
@@ -194,6 +195,7 @@ async function update() {
     }
 }
 init();
+
 
 
 
