@@ -62,7 +62,7 @@ async function update() {
     document.getElementById('vbt').textContent = latest.VBT + 'V';
     document.getElementById('ibc').textContent = latest.IBC + ' A';
     document.getElementById('ibt').textContent = latest.IBT + ' A';
-	document.getElementById('pbt').textContent = latest.PBAT;
+	document.getElementById('pbt').textContent = latest.PBAT + ' %';
     document.getElementById('ewh').textContent = latest.EW + 'Wh';
     document.getElementById('contador').textContent = latest.CHR;
 
@@ -195,6 +195,7 @@ async function update() {
     }
 }
 init();
+
 
 
 
