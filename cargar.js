@@ -62,7 +62,7 @@ async function update() {
     document.getElementById('vbt').textContent = latest.VBT + 'V';
     document.getElementById('ibc').textContent = latest.IBC + ' A';
     document.getElementById('ibt').textContent = latest.IBT + ' A';
-	document.getElementById('pbt').textContent = latest.PBAT + ' %';
+	  document.getElementById('pbt').textContent = latest.PBAT + ' %';
     document.getElementById('ewh').textContent = latest.EW + 'Wh';
     document.getElementById('contador').textContent = latest.CHR;
 
@@ -77,7 +77,7 @@ async function update() {
     const times = sorted.map(r=> r.h || r.timestamp);
     const ppv = sorted.map(r=> r.p || 0);
     const pcw = sorted.map(r=> r.c|| 0);
-    const carga = sorted.map(r=> Math.max(Math.min(r.b|| 0,1),0));
+    const carga = sorted.map(r=> Math.max(Math.min(r.b||0, 1), 0));
 
     // --- PPV vs PCW ---
 
@@ -92,15 +92,7 @@ async function update() {
           times,datasets:[
             {label:'Paneles',data:ppv,borderColor:'green',pointBackgroundColor:'green',tension:0.25,pointRadius:1,borderWidth:1.5,yAxisID:'y1'},
             {label:'Cargas',data:pcw,borderColor:'blue',pointBackgroundColor:'blue',tension:0.25,pointRadius:1,borderWidth:1.5,yAxisID:'y1'},
-            {
-				label:'% Batería',
-			 	data:carga,borderColor:'yellow',
-				pointBackgroundColor:'yellow',
-				tension:0.25,
-				pointRadius:1,
-				borderWidth:1.5,
-				yAxisID:'y2'
-			}
+            {label:'% Batería', data:carga,borderColor:'yellow', pointBackgroundColor:'yellow', tension:0.25,	pointRadius:1,borderWidth:1.5,yAxisID:'y2'}
           ]
         },
         options:{
@@ -184,6 +176,7 @@ async function update() {
       ppvpcwChart.data.labels = times;
       ppvpcwChart.data.datasets[0].data = ppv;
       ppvpcwChart.data.datasets[1].data = pcw;
+      ppvpcwChart.data.datasets[2].data = carga;
       if(selectedValue<times.length){
         ppvpcwChart.options.scales.x.min = times[times.length - selectedValue];
       } else{
