@@ -77,7 +77,7 @@ async function update() {
     const times = sorted.map(r=> r.h || r.timestamp);
     const ppv = sorted.map(r=> r.p || 0);
     const pcw = sorted.map(r=> r.c|| 0);
-    const carga = sorted.map(r=> Math.max(Math.min(r.b||0), 0));
+    const carga = sorted.map(r=> Math.max(r.b||0, 0));
 
     // --- PPV vs PCW ---
 
