@@ -72,7 +72,6 @@ async function update() {
 
     // raw JSON
     //document.getElementById('raw').textContent = JSON.stringify(sorted.slice(-20).reverse(), null, 2);
-
     // prepare arrays for charts (time ascending)
     const times = sorted.map(r=> r.h || r.timestamp);
     const ppv = sorted.map(r=> r.p || 0);
